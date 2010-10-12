@@ -1,0 +1,8 @@
+<h1>Users</h1>
+
+<% for user in @users do -%>
+  <%= user.id %>
+  <%= user.email %>
+  <%= user.openid_identifier %>
+  <br />
+<% end -%>
