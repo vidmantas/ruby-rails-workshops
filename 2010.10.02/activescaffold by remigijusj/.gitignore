@@ -1,0 +1,4 @@
+doc/tmp/*
+log/*.log
+public/public/*
+tmp/restart.txt
