@@ -1,0 +1,102 @@
+h1. Drag-Drop Sortable for ActiveScaffold
+
+Currently, this plugin is compatible with rails 2.3 and rails-2.3 and master branches of ActiveScaffold.
+
+h2. Overview
+
+This plugin enables those slicker-than-snot ajax drag-drop sortable elements on your active-scaffold page, with so little configuration you almost get it for free.
+
+h2. Installation
+
+You'll need at least ActiveScaffold rails-2.3 branch to use this, and rails 2.3.x
+
+
+<pre>
+script/plugin install clone git://github.com/activescaffold/active_scaffold_sortable.git
+</pre>
+
+h2. Usage
+
+h4. Step 1
+
+Create a model with a column named 'position':
+
+<pre>
+# app/models/entry.rb
+
+# id           integer
+# title        string(255)
+# birthday     date
+# position     integer
+
+class Entry < ActiveRecord::Base
+end
+</pre>
+
+h4. Step 2
+
+Create your scaffold controller 
+
+<pre>
+# app/controllers/entries_controller.rb
+
+class EntryController < ApplicationController
+  active_scaffold :entries do |config|
+    config.actions << :sortable
+    config.sortable.column = :position
+  end
+end
+</pre>
+
+
+h4. Step 3
+
+Create your layout
+
+<pre>
+# app/views/layouts/application.rhtml
+<html>
+<head>
+  <title>active scaffold demo application</title>
+  <%= javascript_include_tag :defaults %>
+  <%= active_scaffold_includes %>
+</head>
+<body>
+  <%= yield %>
+</body>
+</html>
+</pre>
+
+h4. Step 4
+
+If you're using restful routes, append this to your route in routes.rb:
+
+<pre>
+  map.resources :tasks, :active_scaffold => true, :active_scaffold_sortable => true
+</pre>
+
+h2. Notice:
+
+If you are using acts_as_list plugin you can skip the step 3
+
+h2. Support
+
+If you have issues installing the plugin, search / post to the "Active Scaffold":http://groups.google.com/group/activescaffold forum or "Create an issue":http://github.com/activescaffold/active_scaffold_sortable/issues
+
+h2. Contributing
+
+Fork, hack, push, and request a pull:
+
+http://github.com/activescaffold/active_scaffold_sortable/
+
+h2. License
+
+Released under the MIT license (included).
+
+h2. Author
+
+Contact me:
+<pre>
+  Tim Harper - irb(main):001:0> ( 'tim_see_harperATgmail._see_om'.gsub('_see_', 'c').gsub('AT', '@') )
+  Sergio Cambra - irb(main):001:0> ( 'sergioATentrecables._see_om'.gsub('_see_', 'c').gsub('AT', '@') )
+</pre>
