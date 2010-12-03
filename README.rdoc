@@ -1,0 +1,6 @@
+= Ruby/Rails workshopai
+
+Ruby/Rails workshopų, vykstančių periodiškai Vilniuje, medžiaga nuo 5-ojo susitikimo.
+
+* Workshopų puslapis: http://workshops.emptydot.com
+* Naujienlaiškiai: http://eepurl.com/7tMA

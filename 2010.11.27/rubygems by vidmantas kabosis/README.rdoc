@@ -1,0 +1,16 @@
+= Ruby paketų ekosistema
+
+* {Prezentacija}[https://github.com/vidmantas/ruby-rails-workshops/tree/master/2010.11.27/rubygems%20by%20vidmantas%20kabosis/prezentacija.pdf]
+
+== Praktinė dalis
+
+    $ gem i bundler rails heroku
+    $ bundle gem workshopygravatar
+    $ cd workshopygravatar/
+    # code... code... code...
+    $ gem build workshopygravatar.gemspec
+    $ gem i workshopygravatar-0.0.1.gem
+    # add to your Gemfile and use it in any Rails 3 app
+    # full source above in workshopygravatar folder, folks ;-)
+    
+  Deployinimui naudojom {Heroku}[http://heroku.com/]
