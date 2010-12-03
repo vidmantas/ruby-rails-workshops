@@ -13,4 +13,4 @@
     # add to your Gemfile and use it in any Rails 3 app
     # full source above in workshopygravatar folder, folks ;-)
     
-  Deployinimui naudojom {Heroku}[http://heroku.com/]
+Deployinimui naudojom {Heroku}[http://heroku.com/]
