@@ -1,0 +1,2 @@
+module VegetablesHelper
+end

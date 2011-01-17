@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Farm</title>
+  <%= stylesheet_link_tag :all %>
+  <%= javascript_include_tag :defaults %>
+  <%= csrf_meta_tag %>
+</head>
+<body>
+
+<div id="header">
+  
+  <% I18n.available_locales.each do |locale| %>
+    <% if I18n.locale == locale.to_sym %>    
+      <b><%= link_to locale.to_s.upcase, url_for(:action => :index, :locale => locale) %></b>
+    <% else %>
+      <%= link_to locale.to_s.upcase, url_for(:action => :index, :locale => locale) %>
+    <% end %>
+  <% end %>
+  
+</div>
+
+<%= yield %>
+
+</body>
+</html>
