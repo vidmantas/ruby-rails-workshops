@@ -1,0 +1,13 @@
+<% if @profile.profile %>
+  <p>
+    <b><%= @profile.name %></b> your one-in-a-million is <b><%= @profile.profile.name %></b>
+  </p>
+  <p>
+    <%= link_to "Tweet about it!", oauth_create_profile_path(@profile) %>
+  </p>
+<% else %>
+  <p>
+    Sorry, <b><%= @profile.name %></b>. Be patient
+  </p>
+<% end %>
+

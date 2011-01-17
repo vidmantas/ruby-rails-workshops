@@ -1,0 +1,9 @@
+= Rails 3
+
+    Modelių specai su rspec ir šiek tiek cukraus iš shoulda
+
+    bundle install
+    rake db:create RAILS_ENV=test
+    rake db:migrate RAILS_ENV=test
+    rspec .
+
