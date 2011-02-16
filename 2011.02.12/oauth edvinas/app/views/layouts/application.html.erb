@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SandboxOauth</title>
+  <%= stylesheet_link_tag :all %>
+  <%= javascript_include_tag :defaults %>
+  <%= csrf_meta_tag %>
+</head>
+<body>
+  <p>
+    <% if not logged_in? %>
+    <%= link_to "Login", :controller => :session, :action => :login %>
+    <% else -%>
+    Hello <%= current_user %>!
+    <%= link_to "Logout", :controller => :session, :action => :logout %>
+    <% end -%>
+  </p>
+
+<%= yield %>
+
+</body>
+</html>
