@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-US" xml:lang="en-US" xmlns="http://www.w3.org/1999/xhtml">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Tryit Editor</title>
+<link rel="stylesheet" type="text/css" href="tryit.css">
+
+  <script id="s" type="text/javascript" src="jquery.js"></script>
+
+<script type="text/javascript">
+function loadit() {
+  var file = document.getElementById("file").options[document.getElementById("file").selectedIndex].value+'.js';
+  
+  console.log("\n[["+file+"]]\n"); // \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n
+  
+  var s = document.createElement("script");
+  s.setAttribute("type", "text/javascript");
+  s.setAttribute("src", file);
+  document.getElementsByTagName("body")[0].appendChild(s);
+  
+  //document.getElementById('i').setAttribute("src", file);
+  //alert(s.innerHTML);
+  // document.getElementById('code').value = document.getElementById('i').innerHTML;
+}
+function evalit() {
+  var t=document.getElementById("code").value;
+  var r = eval(t);
+  document.getElementById("output").innerHTML = r;
+} </script>
+
+</head>
+<body>
+
+<table border="0" class="maintable" cellpadding="3px" cellspacing="3px">
+<tbody><tr>
+<td width="50%">
+  
+  <select id="file">
+    <option value="module_1">Module 1</option>
+    <option value="module_2">Module 2</option>
+    <option value="module_3">Module 3</option>
+    <option value="module_4">Module 4</option>
+    <option value="module_5">Module 5</option>
+    <option value="dci_example">DCI example</option>
+  </select>
+  
+  <input type="button" value="Load" onclick="loadit();">
+  <input type="button" value="Eval" onclick="evalit();">
+  <textarea class="code_input" width="100%" height="300px" id="code" wrap="logical" style="overflow:auto"></textarea>
+  <iframe id="i" style="display:none"></iframe>
+
+</td>
+<td valign="top">
+
+<p class="result_header">Result:</p>
+
+<iframe id="output" class="result_output" width="100%" height="300px" frameborder="0" name="view"></iframe>
+
+</td>
+</tr>
+</tbody></table>
+
+</body></html>

@@ -1,0 +1,21 @@
+<!DOCTYPE>
+<html>
+  <head />
+  <body>
+    <p>
+    <p>
+      <h2>Tokens</h2>
+    </p><p>
+      <%= @consumer_tokens.each do |token| %>
+        <%= token %><br />
+      <% end %>
+    </p>
+
+    <p>
+      <h2>Services</h2>
+      <%= @services.each do |service| %>
+        <%= service %>
+      <% end %>
+    </p>
+  </body>
+</html>

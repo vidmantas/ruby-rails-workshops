@@ -1,0 +1,7 @@
+<% title "Users" %>
+<% stylesheet("application") %>
+<ul>
+  <% @users.each{ |user| %>
+    <li class="user"><%= user %><span class="icon show"></span><span class="icon edit"></span><span class="icon delete"></span></li>
+  <% } %>
+</ul>

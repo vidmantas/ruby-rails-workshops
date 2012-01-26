@@ -1,0 +1,9 @@
+= Rails 3
+
+    Controllerio specai su rspec ir šiek tiek cukraus iš webrat
+
+    bundle install
+    rake db:create RAILS_ENV=test
+    rake db:migrate RAILS_ENV=test
+    rspec .
+

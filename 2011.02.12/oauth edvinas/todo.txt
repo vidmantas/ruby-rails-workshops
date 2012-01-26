@@ -1,0 +1,3 @@
+Step 1. Update gem file:
+	gem "portablecontacts", :git => "git://github.com/abhishiv/portablecontacts.git"
+	gem "oauth-plugin", ">= 0.4.0.pre1"

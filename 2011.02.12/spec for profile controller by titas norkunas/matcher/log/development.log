@@ -1,0 +1,1126 @@
+
+
+Started GET "/" for 127.0.0.1 at 2010-11-27 11:25:21 +0200
+  Processing by ProfilesController#new as HTML
+Completed   in 24ms
+
+ActiveRecord::StatementInvalid (Could not find table 'profiles'):
+  app/controllers/profiles_controller.rb:20:in `new'
+  app/controllers/profiles_controller.rb:20:in `new'
+
+Rendered /home/titas/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /home/titas/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (5.1ms)
+Rendered /home/titas/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (10.2ms)
+  [1m[36mSQL (0.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (5.2ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("schema_migrations")
+  [1m[36mSQL (1.7ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+Migrating to CreateProfiles (20101125205131)
+  [1m[36mSQL (0.8ms)[0m  [1mCREATE TABLE "profiles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "number" integer, "sex" boolean, "profile_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20101125205131')
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("profiles")
+
+
+Started GET "/" for 127.0.0.1 at 2010-11-27 11:26:09 +0200
+  Processing by ProfilesController#new as HTML
+Rendered profiles/_form.html.erb (9.6ms)
+Rendered profiles/new.html.erb within layouts/application (12.9ms)
+Completed 200 OK in 45ms (Views: 17.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/profiles" for 127.0.0.1 at 2010-11-27 11:26:17 +0200
+  Processing by ProfilesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6TrtY623M8+JcGYGzRC5Jd1O7J2HKn3tno4xlcBvjms=", "profile"=>{"name"=>"Judita", "number"=>"", "sex"=>"false"}, "commit"=>"Create Profile"}
+Rendered profiles/_form.html.erb (2.6ms)
+Rendered profiles/new.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 28ms (Views: 9.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/profiles" for 127.0.0.1 at 2010-11-27 11:26:23 +0200
+  Processing by ProfilesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6TrtY623M8+JcGYGzRC5Jd1O7J2HKn3tno4xlcBvjms=", "profile"=>{"name"=>"Judita", "number"=>"0", "sex"=>"false"}, "commit"=>"Create Profile"}
+Rendered profiles/_form.html.erb (2.7ms)
+Rendered profiles/new.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 28ms (Views: 8.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/profiles" for 127.0.0.1 at 2010-11-27 11:26:28 +0200
+  Processing by ProfilesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6TrtY623M8+JcGYGzRC5Jd1O7J2HKn3tno4xlcBvjms=", "profile"=>{"name"=>"Judita", "number"=>"444", "sex"=>"false"}, "commit"=>"Create Profile"}
+  [1m[36mProfile Load (0.2ms)[0m  [1mSELECT "profiles".* FROM "profiles" WHERE (profile_id IS NULL AND number = 444 AND sex != 'f') ORDER BY RANDOM() LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mAREL (0.7ms)[0m  [1mINSERT INTO "profiles" ("name", "number", "sex", "profile_id", "created_at", "updated_at") VALUES ('Judita', 444, 'f', NULL, '2010-11-27 09:26:28.819064', '2010-11-27 09:26:28.819064')[0m
+Redirected to http://localhost:3000/profiles/1
+Completed 302 Found in 134ms
+
+
+Started GET "/profiles/1" for 127.0.0.1 at 2010-11-27 11:26:28 +0200
+  Processing by ProfilesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mProfile Load (0.3ms)[0m  SELECT "profiles".* FROM "profiles" WHERE ("profiles"."id" = 1) LIMIT 1
+  [1m[36mProfile Load (0.2ms)[0m  [1mSELECT "profiles".* FROM "profiles" WHERE ("profiles".profile_id = 1) LIMIT 1[0m
+Rendered profiles/show.html.erb within layouts/application (17.7ms)
+Completed 200 OK in 35ms (Views: 22.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2010-11-27 11:26:32 +0200
+  Processing by ProfilesController#new as HTML
+Rendered profiles/_form.html.erb (7.5ms)
+Rendered profiles/new.html.erb within layouts/application (10.6ms)
+Completed 200 OK in 27ms (Views: 14.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/profiles" for 127.0.0.1 at 2010-11-27 11:26:39 +0200
+  Processing by ProfilesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6TrtY623M8+JcGYGzRC5Jd1O7J2HKn3tno4xlcBvjms=", "profile"=>{"name"=>"Titas", "number"=>"444", "sex"=>"true"}, "commit"=>"Create Profile"}
+  [1m[35mProfile Load (0.4ms)[0m  SELECT "profiles".* FROM "profiles" WHERE (profile_id IS NULL AND number = 444 AND sex != 't') ORDER BY RANDOM() LIMIT 1
+  [1m[36mProfile Load (0.1ms)[0m  [1mSELECT "profiles".* FROM "profiles" WHERE ("profiles".profile_id = 1) LIMIT 1[0m
+  [1m[35mAREL (1.0ms)[0m  INSERT INTO "profiles" ("name", "number", "sex", "profile_id", "created_at", "updated_at") VALUES ('Titas', 444, 't', 1, '2010-11-27 09:26:39.256475', '2010-11-27 09:26:39.256475')
+  [1m[36mProfile Load (0.2ms)[0m  [1mSELECT "profiles".* FROM "profiles" WHERE ("profiles".profile_id = 1) LIMIT 1[0m
+  [1m[35mAREL (0.1ms)[0m  UPDATE "profiles" SET "profile_id" = 2, "updated_at" = '2010-11-27 09:26:39.292984' WHERE ("profiles"."id" = 1)
+Redirected to http://localhost:3000/profiles/2
+Completed 302 Found in 66ms
+
+
+Started GET "/profiles/2" for 127.0.0.1 at 2010-11-27 11:26:39 +0200
+  Processing by ProfilesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProfile Load (0.2ms)[0m  [1mSELECT "profiles".* FROM "profiles" WHERE ("profiles"."id" = 2) LIMIT 1[0m
+  [1m[35mProfile Load (0.2ms)[0m  SELECT "profiles".* FROM "profiles" WHERE ("profiles".profile_id = 2) LIMIT 1
+Rendered profiles/show.html.erb within layouts/application (15.6ms)
+Completed 200 OK in 32ms (Views: 19.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/profiles/2/oauth_create" for 127.0.0.1 at 2010-11-27 11:26:42 +0200
+  Processing by ProfilesController#oauth_create as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProfile Load (1.0ms)[0m  [1mSELECT "profiles".* FROM "profiles" WHERE ("profiles"."id" = 2) LIMIT 1[0m
+Redirected to https://api.twitter.com/oauth/authorize?oauth_token=qliXdgEq3fBIIQJf8TEZdUHp7MsPtencBEUk5iPuA
+Completed 302 Found in 1555ms
+
+
+Started GET "/" for 127.0.0.1 at 2010-11-27 12:17:15 +0200
+  Processing by ProfilesController#new as HTML
+Rendered profiles/_form.html.erb (9.5ms)
+Rendered profiles/new.html.erb within layouts/application (12.3ms)
+Completed 200 OK in 43ms (Views: 16.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/profiles" for 127.0.0.1 at 2010-11-27 12:17:23 +0200
+  Processing by ProfilesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6TrtY623M8+JcGYGzRC5Jd1O7J2HKn3tno4xlcBvjms=", "profile"=>{"name"=>"asdf", "number"=>"999999", "sex"=>"false"}, "commit"=>"Create Profile"}
+  [1m[36mProfile Load (0.2ms)[0m  [1mSELECT "profiles".* FROM "profiles" WHERE (profile_id IS NULL AND number = 999999 AND sex != 'f') ORDER BY RANDOM() LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mAREL (0.8ms)[0m  [1mINSERT INTO "profiles" ("name", "number", "sex", "profile_id", "created_at", "updated_at") VALUES ('asdf', 999999, 'f', NULL, '2010-11-27 10:17:23.534195', '2010-11-27 10:17:23.534195')[0m
+Redirected to http://localhost:3000/profiles/3
+Completed 302 Found in 131ms
+
+
+Started GET "/profiles/3" for 127.0.0.1 at 2010-11-27 12:17:23 +0200
+  Processing by ProfilesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mProfile Load (0.3ms)[0m  SELECT "profiles".* FROM "profiles" WHERE ("profiles"."id" = 3) LIMIT 1
+  [1m[36mProfile Load (0.2ms)[0m  [1mSELECT "profiles".* FROM "profiles" WHERE ("profiles".profile_id = 3) LIMIT 1[0m
+Rendered profiles/show.html.erb within layouts/application (14.5ms)
+Completed 200 OK in 31ms (Views: 17.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2010-11-27 14:44:33 +0200
+  Processing by ProfilesController#new as HTML
+Rendered profiles/_form.html.erb (10.1ms)
+Rendered profiles/new.html.erb within layouts/application (14.0ms)
+Completed 200 OK in 48ms (Views: 19.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/profiles" for 127.0.0.1 at 2010-11-27 14:44:38 +0200
+  Processing by ProfilesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"G0OX1rn+lmaNAbJnXfb96zLSjPlA4tRehBIePNQmQUM=", "profile"=>{"name"=>"rere", "number"=>"1", "sex"=>"false"}, "commit"=>"Create Profile"}
+  [1m[36mProfile Load (0.2ms)[0m  [1mSELECT "profiles".* FROM "profiles" WHERE (profile_id IS NULL AND number = 1 AND sex != 'f') ORDER BY RANDOM() LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mAREL (0.9ms)[0m  [1mINSERT INTO "profiles" ("name", "number", "sex", "profile_id", "created_at", "updated_at") VALUES ('rere', 1, 'f', NULL, '2010-11-27 12:44:38.827598', '2010-11-27 12:44:38.827598')[0m
+Redirected to http://localhost:3000/profiles/4
+Completed 302 Found in 137ms
+
+
+Started GET "/profiles/4" for 127.0.0.1 at 2010-11-27 14:44:38 +0200
+  Processing by ProfilesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mProfile Load (0.3ms)[0m  SELECT "profiles".* FROM "profiles" WHERE ("profiles"."id" = 4) LIMIT 1
+  [1m[36mProfile Load (0.3ms)[0m  [1mSELECT "profiles".* FROM "profiles" WHERE ("profiles".profile_id = 4) LIMIT 1[0m
+Rendered profiles/show.html.erb within layouts/application (15.2ms)
+Completed 200 OK in 33ms (Views: 19.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2010-11-27 14:44:41 +0200
+  Processing by ProfilesController#new as HTML
+Rendered profiles/_form.html.erb (7.1ms)
+Rendered profiles/new.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 25ms (Views: 13.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/profiles" for 127.0.0.1 at 2010-11-27 14:44:47 +0200
+  Processing by ProfilesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"G0OX1rn+lmaNAbJnXfb96zLSjPlA4tRehBIePNQmQUM=", "profile"=>{"name"=>"meme", "number"=>"1", "sex"=>"true"}, "commit"=>"Create Profile"}
+  [1m[35mProfile Load (0.5ms)[0m  SELECT "profiles".* FROM "profiles" WHERE (profile_id IS NULL AND number = 1 AND sex != 't') ORDER BY RANDOM() LIMIT 1
+  [1m[36mProfile Load (0.1ms)[0m  [1mSELECT "profiles".* FROM "profiles" WHERE ("profiles".profile_id = 4) LIMIT 1[0m
+  [1m[35mAREL (0.6ms)[0m  INSERT INTO "profiles" ("name", "number", "sex", "profile_id", "created_at", "updated_at") VALUES ('meme', 1, 't', 4, '2010-11-27 12:44:47.261130', '2010-11-27 12:44:47.261130')
+  [1m[36mProfile Load (0.1ms)[0m  [1mSELECT "profiles".* FROM "profiles" WHERE ("profiles".profile_id = 4) LIMIT 1[0m
+  [1m[35mAREL (0.1ms)[0m  UPDATE "profiles" SET "profile_id" = 5, "updated_at" = '2010-11-27 12:44:47.270051' WHERE ("profiles"."id" = 4)
+Redirected to http://localhost:3000/profiles/5
+Completed 302 Found in 48ms
+
+
+Started GET "/profiles/5" for 127.0.0.1 at 2010-11-27 14:44:47 +0200
+  Processing by ProfilesController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mProfile Load (0.2ms)[0m  [1mSELECT "profiles".* FROM "profiles" WHERE ("profiles"."id" = 5) LIMIT 1[0m
+  [1m[35mProfile Load (0.2ms)[0m  SELECT "profiles".* FROM "profiles" WHERE ("profiles".profile_id = 5) LIMIT 1
+Rendered profiles/show.html.erb within layouts/application (15.3ms)
+Completed 200 OK in 31ms (Views: 18.7ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2010-11-27 14:44:52 +0200
+  Processing by ProfilesController#new as HTML
+Rendered profiles/_form.html.erb (7.0ms)
+Rendered profiles/new.html.erb within layouts/application (9.8ms)
+Completed 200 OK in 25ms (Views: 13.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/profiles" for 127.0.0.1 at 2010-11-27 14:44:56 +0200
+  Processing by ProfilesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"G0OX1rn+lmaNAbJnXfb96zLSjPlA4tRehBIePNQmQUM=", "profile"=>{"name"=>"fafafa", "number"=>"0", "sex"=>"false"}, "commit"=>"Create Profile"}
+Rendered profiles/_form.html.erb (2.7ms)
+Rendered profiles/new.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 28ms (Views: 9.1ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/profiles/6" for 127.0.0.1 at 2010-11-27 14:47:46 +0200
+  Processing by ProfilesController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mProfile Load (0.2ms)[0m  [1mSELECT "profiles".* FROM "profiles" WHERE ("profiles"."id" = 6) LIMIT 1[0m
+Completed   in 12ms
+
+ActiveRecord::RecordNotFound (Couldn't find Profile with ID=6):
+  app/controllers/profiles_controller.rb:100:in `get_profile'
+
+Rendered /home/titas/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /home/titas/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (30.0ms)
+Rendered /home/titas/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (36.4ms)
+
+
+Started GET "/profiles/4" for 127.0.0.1 at 2010-11-27 14:47:50 +0200
+  Processing by ProfilesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mProfile Load (0.2ms)[0m  SELECT "profiles".* FROM "profiles" WHERE ("profiles"."id" = 4) LIMIT 1
+  [1m[36mProfile Load (0.2ms)[0m  [1mSELECT "profiles".* FROM "profiles" WHERE ("profiles".profile_id = 4) LIMIT 1[0m
+Rendered profiles/show.html.erb within layouts/application (15.5ms)
+Completed 200 OK in 32ms (Views: 19.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/profiles/4/oauth_create" for 127.0.0.1 at 2010-11-27 14:47:52 +0200
+  Processing by ProfilesController#oauth_create as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mProfile Load (0.2ms)[0m  SELECT "profiles".* FROM "profiles" WHERE ("profiles"."id" = 4) LIMIT 1
+Redirected to https://api.twitter.com/oauth/authorize?oauth_token=jCWrcPE5I5fwWCKE74u5UTwFtblHKFO5IxbLkI6DI
+Completed 302 Found in 1045ms
+
+
+Started GET "/profiles/4" for 127.0.0.1 at 2010-11-27 14:48:44 +0200
+  Processing by ProfilesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mProfile Load (0.2ms)[0m  SELECT "profiles".* FROM "profiles" WHERE ("profiles"."id" = 4) LIMIT 1
+  [1m[36mProfile Load (0.3ms)[0m  [1mSELECT "profiles".* FROM "profiles" WHERE ("profiles".profile_id = 4) LIMIT 1[0m
+Rendered profiles/show.html.erb within layouts/application (29.9ms)
+Completed 200 OK in 136ms (Views: 33.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/profiles/4/oauth_create" for 127.0.0.1 at 2010-11-27 14:48:46 +0200
+  Processing by ProfilesController#oauth_create as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mProfile Load (0.2ms)[0m  SELECT "profiles".* FROM "profiles" WHERE ("profiles"."id" = 4) LIMIT 1
+Redirected to https://api.twitter.com/oauth/authorize?oauth_token=FQyIgBrEQTkjM4NHV7IAuAoV7wyWoL6cQALLvDTFao
+Completed 302 Found in 1207ms
+
+
+Started GET "/profiles/4/oauth_finalize?oauth_token=FQyIgBrEQTkjM4NHV7IAuAoV7wyWoL6cQALLvDTFao&oauth_verifier=SQNWq3YZj3BlHvs2eammSVjGKSFgVrHgFN3JKsOk" for 127.0.0.1 at 2010-11-27 14:48:59 +0200
+  Processing by ProfilesController#oauth_finalize as HTML
+  Parameters: {"oauth_token"=>"FQyIgBrEQTkjM4NHV7IAuAoV7wyWoL6cQALLvDTFao", "oauth_verifier"=>"SQNWq3YZj3BlHvs2eammSVjGKSFgVrHgFN3JKsOk", "id"=>"4"}
+  [1m[36mProfile Load (0.2ms)[0m  [1mSELECT "profiles".* FROM "profiles" WHERE ("profiles"."id" = 4) LIMIT 1[0m
+Redirected to http://localhost:3000/profiles/4/update_status
+Completed 302 Found in 1011ms
+
+
+Started GET "/profiles/4/update_status" for 127.0.0.1 at 2010-11-27 14:49:00 +0200
+  Processing by ProfilesController#update_status as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mProfile Load (0.1ms)[0m  SELECT "profiles".* FROM "profiles" WHERE ("profiles"."id" = 4) LIMIT 1
+  [1m[36mProfile Load (0.2ms)[0m  [1mSELECT "profiles".* FROM "profiles" WHERE ("profiles".profile_id = 4) LIMIT 1[0m
+Rendered profiles/show.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 1363ms (Views: 6.3ms | ActiveRecord: 0.4ms)
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.4ms)[0m  select * from profile
+SQLite3::SQLException: no such table: profile: select * from profile
+  [1m[36mSQL (1.0ms)[0m  [1mselect * from profiles[0m
+  [1m[35mSQL (1.0ms)[0m  select * from profiles
+  [1m[36mSQL (0.9ms)[0m  [1mselect * from profiles[0m
+  [1m[35mSQL (0.9ms)[0m  select * from profiles
+
+
+Started GET "/" for 127.0.0.1 at 2010-12-08 21:42:17 +0200
+  Processing by ProfilesController#new as HTML
+Rendered profiles/_form.html.erb (34.6ms)
+Rendered profiles/new.html.erb within layouts/application (38.2ms)
+Completed 200 OK in 72ms (Views: 43.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/profiles" for 127.0.0.1 at 2010-12-08 21:42:24 +0200
+  Processing by ProfilesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"A311JW+sRzAW4tDWQF1oXMHQvk0IraCMWYZb78m9FgQ=", "profile"=>{"name"=>"Titas", "number"=>"Lol", "sex"=>"false"}, "commit"=>"Create Profile"}
+Rendered profiles/_form.html.erb (2.7ms)
+Rendered profiles/new.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 27ms (Views: 9.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/profiles" for 127.0.0.1 at 2010-12-08 21:42:27 +0200
+  Processing by ProfilesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"A311JW+sRzAW4tDWQF1oXMHQvk0IraCMWYZb78m9FgQ=", "profile"=>{"name"=>"Titas", "number"=>"1", "sex"=>"false"}, "commit"=>"Create Profile"}
+  [1m[36mProfile Load (0.2ms)[0m  [1mSELECT "profiles".* FROM "profiles" WHERE (profile_id IS NULL AND number = 1 AND sex != 'f') ORDER BY RANDOM() LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mAREL (0.7ms)[0m  [1mINSERT INTO "profiles" ("name", "number", "sex", "profile_id", "created_at", "updated_at") VALUES ('Titas', 1, 'f', NULL, '2010-12-08 19:42:27.151149', '2010-12-08 19:42:27.151149')[0m
+Redirected to http://127.0.0.1:3000/profiles/6
+Completed 302 Found in 143ms
+
+
+Started GET "/profiles/6" for 127.0.0.1 at 2010-12-08 21:42:27 +0200
+  Processing by ProfilesController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[35mProfile Load (0.3ms)[0m  SELECT "profiles".* FROM "profiles" WHERE ("profiles"."id" = 6) LIMIT 1
+  [1m[36mProfile Load (0.2ms)[0m  [1mSELECT "profiles".* FROM "profiles" WHERE ("profiles".profile_id = 6) LIMIT 1[0m
+Rendered profiles/show.html.erb within layouts/application (41.1ms)
+Completed 200 OK in 58ms (Views: 45.2ms | ActiveRecord: 1.6ms)
+
+
+Started POST "/profiles" for 127.0.0.1 at 2010-12-08 21:42:35 +0200
+  Processing by ProfilesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"A311JW+sRzAW4tDWQF1oXMHQvk0IraCMWYZb78m9FgQ=", "profile"=>{"name"=>"J", "number"=>"1", "sex"=>"true"}, "commit"=>"Create Profile"}
+  [1m[35mProfile Load (0.4ms)[0m  SELECT "profiles".* FROM "profiles" WHERE (profile_id IS NULL AND number = 1 AND sex != 't') ORDER BY RANDOM() LIMIT 1
+  [1m[36mProfile Load (0.1ms)[0m  [1mSELECT "profiles".* FROM "profiles" WHERE ("profiles".profile_id = 6) LIMIT 1[0m
+  [1m[35mAREL (0.6ms)[0m  INSERT INTO "profiles" ("name", "number", "sex", "profile_id", "created_at", "updated_at") VALUES ('J', 1, 't', 6, '2010-12-08 19:42:35.869701', '2010-12-08 19:42:35.869701')
+  [1m[36mProfile Load (0.1ms)[0m  [1mSELECT "profiles".* FROM "profiles" WHERE ("profiles".profile_id = 6) LIMIT 1[0m
+  [1m[35mAREL (0.1ms)[0m  UPDATE "profiles" SET "profile_id" = 7, "updated_at" = '2010-12-08 19:42:35.878773' WHERE ("profiles"."id" = 6)
+Redirected to http://127.0.0.1:3000/profiles/7
+Completed 302 Found in 39ms
+
+
+Started GET "/profiles/7" for 127.0.0.1 at 2010-12-08 21:42:35 +0200
+  Processing by ProfilesController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mProfile Load (0.2ms)[0m  [1mSELECT "profiles".* FROM "profiles" WHERE ("profiles"."id" = 7) LIMIT 1[0m
+  [1m[35mProfile Load (0.2ms)[0m  SELECT "profiles".* FROM "profiles" WHERE ("profiles".profile_id = 7) LIMIT 1
+Rendered profiles/show.html.erb within layouts/application (15.5ms)
+Completed 200 OK in 58ms (Views: 19.0ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/profiles/7/oauth_create" for 127.0.0.1 at 2010-12-08 21:42:38 +0200
+  Processing by ProfilesController#oauth_create as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mProfile Load (0.2ms)[0m  [1mSELECT "profiles".* FROM "profiles" WHERE ("profiles"."id" = 7) LIMIT 1[0m
+Redirected to https://api.twitter.com/oauth/authorize?oauth_token=3F9t5tNVUlLms8DPeHTD53mJoZpG1uZsS3QpfRszk
+Completed 302 Found in 2044ms
+
+
+Started GET "/profiles/6" for 127.0.0.1 at 2010-12-08 21:52:54 +0200
+
+Errno::ENOENT (No such file or directory - /home/titas/sandbox/matcher/config/locales/en.yml):
+  
+
+Rendered /home/titas/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /home/titas/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.3ms)
+Rendered /home/titas/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (8.0ms)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2010-12-08 21:52:54 +0200
+
+Errno::ENOENT (No such file or directory - /home/titas/sandbox/matcher/config/locales/en.yml):
+  
+
+Rendered /home/titas/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /home/titas/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (34.2ms)
+Rendered /home/titas/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (39.9ms)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2010-12-08 21:52:57 +0200
+
+Errno::ENOENT (No such file or directory - /home/titas/sandbox/matcher/config/locales/en.yml):
+  
+
+Rendered /home/titas/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /home/titas/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.2ms)
+Rendered /home/titas/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (6.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-01-08 14:47:51 +0200
+  Processing by ProfilesController#new as HTML
+Rendered profiles/_form.html.erb (11.8ms)
+Rendered profiles/new.html.erb within layouts/application (15.2ms)
+Completed 200 OK in 48ms (Views: 20.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/profiles" for 127.0.0.1 at 2011-01-08 14:48:01 +0200
+  Processing by ProfilesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"aF3x/zalSNykUhFLlf9wwKFyCcVuXZy/D+xM0EXUY0Y=", "profile"=>{"name"=>"asdf", "number"=>"1", "sex"=>"true"}, "commit"=>"Create Profile"}
+  [1m[36mProfile Load (0.2ms)[0m  [1mSELECT "profiles".* FROM "profiles" WHERE (profile_id IS NULL AND number = 1 AND sex != 't') ORDER BY RANDOM() LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mAREL (0.7ms)[0m  [1mINSERT INTO "profiles" ("name", "number", "sex", "profile_id", "created_at", "updated_at") VALUES ('asdf', 1, 't', NULL, '2011-01-08 12:48:01.936242', '2011-01-08 12:48:01.936242')[0m
+Redirected to http://localhost:3000/profiles/8
+Completed 302 Found in 138ms
+
+
+Started GET "/profiles/8" for 127.0.0.1 at 2011-01-08 14:48:01 +0200
+  Processing by ProfilesController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[35mProfile Load (0.3ms)[0m  SELECT "profiles".* FROM "profiles" WHERE ("profiles"."id" = 8) LIMIT 1
+  [1m[36mProfile Load (0.2ms)[0m  [1mSELECT "profiles".* FROM "profiles" WHERE ("profiles".profile_id = 8) LIMIT 1[0m
+Rendered profiles/show.html.erb within layouts/application (15.2ms)
+Completed 200 OK in 33ms (Views: 20.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-01-08 14:48:05 +0200
+  Processing by ProfilesController#new as HTML
+Rendered profiles/_form.html.erb (7.2ms)
+Rendered profiles/new.html.erb within layouts/application (10.1ms)
+Completed 200 OK in 26ms (Views: 13.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/profiles" for 127.0.0.1 at 2011-01-08 14:48:11 +0200
+  Processing by ProfilesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"aF3x/zalSNykUhFLlf9wwKFyCcVuXZy/D+xM0EXUY0Y=", "profile"=>{"name"=>"fdsa", "number"=>"1", "sex"=>"false"}, "commit"=>"Create Profile"}
+  [1m[35mProfile Load (0.7ms)[0m  SELECT "profiles".* FROM "profiles" WHERE (profile_id IS NULL AND number = 1 AND sex != 'f') ORDER BY RANDOM() LIMIT 1
+  [1m[36mProfile Load (0.1ms)[0m  [1mSELECT "profiles".* FROM "profiles" WHERE ("profiles".profile_id = 8) LIMIT 1[0m
+  [1m[35mAREL (0.6ms)[0m  INSERT INTO "profiles" ("name", "number", "sex", "profile_id", "created_at", "updated_at") VALUES ('fdsa', 1, 'f', 8, '2011-01-08 12:48:11.301291', '2011-01-08 12:48:11.301291')
+  [1m[36mProfile Load (0.1ms)[0m  [1mSELECT "profiles".* FROM "profiles" WHERE ("profiles".profile_id = 8) LIMIT 1[0m
+  [1m[35mAREL (0.1ms)[0m  UPDATE "profiles" SET "profile_id" = 9, "updated_at" = '2011-01-08 12:48:11.310485' WHERE ("profiles"."id" = 8)
+Redirected to http://localhost:3000/profiles/9
+Completed 302 Found in 42ms
+
+
+Started GET "/profiles/9" for 127.0.0.1 at 2011-01-08 14:48:11 +0200
+  Processing by ProfilesController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mProfile Load (0.2ms)[0m  [1mSELECT "profiles".* FROM "profiles" WHERE ("profiles"."id" = 9) LIMIT 1[0m
+  [1m[35mProfile Load (0.2ms)[0m  SELECT "profiles".* FROM "profiles" WHERE ("profiles".profile_id = 9) LIMIT 1
+Rendered profiles/show.html.erb within layouts/application (15.7ms)
+Completed 200 OK in 32ms (Views: 19.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/profiles/9/oauth_create" for 127.0.0.1 at 2011-01-08 14:48:12 +0200
+  Processing by ProfilesController#oauth_create as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mProfile Load (0.2ms)[0m  [1mSELECT "profiles".* FROM "profiles" WHERE ("profiles"."id" = 9) LIMIT 1[0m
+Redirected to https://api.twitter.com/oauth/authorize?oauth_token=JVRPKOuFjX9RBL9spMBhoyVhYM3PCsfmc8F21g4euo
+Completed 302 Found in 1592ms
+
+
+Started GET "/profiles/9/oauth_finalize?oauth_token=JVRPKOuFjX9RBL9spMBhoyVhYM3PCsfmc8F21g4euo&oauth_verifier=kWfwNfmBfYxlon4xii59b5dnuMPqpmof7R1IXSNVig" for 127.0.0.1 at 2011-01-08 14:48:29 +0200
+  Processing by ProfilesController#oauth_finalize as HTML
+  Parameters: {"oauth_token"=>"JVRPKOuFjX9RBL9spMBhoyVhYM3PCsfmc8F21g4euo", "oauth_verifier"=>"kWfwNfmBfYxlon4xii59b5dnuMPqpmof7R1IXSNVig", "id"=>"9"}
+  [1m[35mProfile Load (0.2ms)[0m  SELECT "profiles".* FROM "profiles" WHERE ("profiles"."id" = 9) LIMIT 1
+Redirected to http://localhost:3000/profiles/9/update_status
+Completed 302 Found in 1580ms
+
+
+Started GET "/profiles/9/update_status" for 127.0.0.1 at 2011-01-08 14:48:30 +0200
+  Processing by ProfilesController#update_status as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mProfile Load (0.2ms)[0m  [1mSELECT "profiles".* FROM "profiles" WHERE ("profiles"."id" = 9) LIMIT 1[0m
+  [1m[35mProfile Load (0.2ms)[0m  SELECT "profiles".* FROM "profiles" WHERE ("profiles".profile_id = 9) LIMIT 1
+Rendered profiles/show.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 1937ms (Views: 6.3ms | ActiveRecord: 1.5ms)
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.2ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (6.5ms)[0m  CREATE TABLE "profiles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "number" integer, "sex" boolean, "profile_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.6ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35mSQL (1.9ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (1.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101125205131')[0m
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.2ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (16.3ms)[0m  CREATE TABLE "profiles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "number" integer, "sex" boolean, "profile_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.7ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35mSQL (2.0ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (2.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101125205131')[0m
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.2ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (7.6ms)[0m  CREATE TABLE "profiles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "number" integer, "sex" boolean, "profile_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.6ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35mSQL (2.3ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (2.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101125205131')[0m
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.2ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (6.7ms)[0m  CREATE TABLE "profiles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "number" integer, "sex" boolean, "profile_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.7ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35mSQL (2.4ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (2.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101125205131')[0m
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.2ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (6.2ms)[0m  CREATE TABLE "profiles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "number" integer, "sex" boolean, "profile_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.7ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35mSQL (2.4ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (2.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101125205131')[0m
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.2ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (17.2ms)[0m  CREATE TABLE "profiles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "number" integer, "sex" boolean, "profile_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (2.7ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35mSQL (18.7ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mSQL (0.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (6.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101125205131')[0m
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.2ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (6.8ms)[0m  CREATE TABLE "profiles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "number" integer, "sex" boolean, "profile_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.8ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35mSQL (2.0ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (2.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101125205131')[0m
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.2ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (6.9ms)[0m  CREATE TABLE "profiles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "number" integer, "sex" boolean, "profile_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.7ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35mSQL (2.0ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (4.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101125205131')[0m
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.2ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (7.6ms)[0m  CREATE TABLE "profiles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "number" integer, "sex" boolean, "profile_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.8ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35mSQL (2.3ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (2.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101125205131')[0m
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.2ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (16.9ms)[0m  CREATE TABLE "profiles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "number" integer, "sex" boolean, "profile_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.6ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35mSQL (2.0ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (2.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101125205131')[0m
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreateProfiles (20101125205131)
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (1.0ms)[0m  [1mDROP TABLE "profiles"[0m
+  [1m[35mAREL (0.5ms)[0m  DELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20101125205131'
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreateProfiles (20101125205131)
+  [1m[35mSQL (0.8ms)[0m  CREATE TABLE "profiles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "number" integer, "sex" boolean, "matching_profile_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20101125205131')[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("profiles")[0m
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreateProfiles (20101125205131)
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.8ms)[0m  [1mDROP TABLE "profiles"[0m
+  [1m[35mAREL (0.5ms)[0m  DELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20101125205131'
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreateProfiles (20101125205131)
+  [1m[35mSQL (0.9ms)[0m  CREATE TABLE "profiles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "number" integer, "sex" boolean, "profile_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20101125205131')[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("profiles")[0m
+
+
+Started GET "/" for 127.0.0.1 at 2011-01-15 01:08:19 +0200
+  Processing by ProfilesController#new as HTML
+Rendered profiles/_form.html.erb (17.5ms)
+Rendered profiles/new.html.erb within layouts/application (21.2ms)
+Completed 200 OK in 30ms (Views: 25.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/profiles" for 127.0.0.1 at 2011-01-15 01:08:25 +0200
+  Processing by ProfilesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9+kagR5CI0hWRlNTO7s2PJSEX8xlbdaFoP6FCyYW/YI=", "profile"=>{"name"=>"lolas", "number"=>"1", "sex"=>"true"}, "commit"=>"Create Profile"}
+  [1m[36mProfile Load (0.3ms)[0m  [1mSELECT "profiles".* FROM "profiles" WHERE (profile_id IS NULL AND number = 1 AND sex != 't') ORDER BY RANDOM() LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mAREL (0.8ms)[0m  [1mINSERT INTO "profiles" ("name", "number", "sex", "profile_id", "created_at", "updated_at") VALUES ('lolas', 1, 't', NULL, '2011-01-14 23:08:25.680841', '2011-01-14 23:08:25.680841')[0m
+Redirected to http://localhost:3000/profiles/4
+Completed 302 Found in 165ms
+
+
+Started GET "/profiles/4" for 127.0.0.1 at 2011-01-15 01:08:25 +0200
+  Processing by ProfilesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mProfile Load (0.3ms)[0m  SELECT "profiles".* FROM "profiles" WHERE ("profiles"."id" = 4) LIMIT 1
+  [1m[36mProfile Load (0.2ms)[0m  [1mSELECT "profiles".* FROM "profiles" WHERE ("profiles".profile_id = 4) LIMIT 1[0m
+Rendered profiles/show.html.erb within layouts/application (15.1ms)
+Completed 200 OK in 32ms (Views: 18.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-01-15 01:08:28 +0200
+  Processing by ProfilesController#new as HTML
+Rendered profiles/_form.html.erb (7.2ms)
+Rendered profiles/new.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 26ms (Views: 13.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/profiles" for 127.0.0.1 at 2011-01-15 01:08:34 +0200
+  Processing by ProfilesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9+kagR5CI0hWRlNTO7s2PJSEX8xlbdaFoP6FCyYW/YI=", "profile"=>{"name"=>"momas", "number"=>"1", "sex"=>"false"}, "commit"=>"Create Profile"}
+  [1m[35mProfile Load (0.6ms)[0m  SELECT "profiles".* FROM "profiles" WHERE (profile_id IS NULL AND number = 1 AND sex != 'f') ORDER BY RANDOM() LIMIT 1
+  [1m[36mProfile Load (0.2ms)[0m  [1mSELECT "profiles".* FROM "profiles" WHERE ("profiles".profile_id = 4) LIMIT 1[0m
+  [1m[35mAREL (0.6ms)[0m  INSERT INTO "profiles" ("name", "number", "sex", "profile_id", "created_at", "updated_at") VALUES ('momas', 1, 'f', 4, '2011-01-14 23:08:34.616475', '2011-01-14 23:08:34.616475')
+  [1m[36mProfile Load (0.1ms)[0m  [1mSELECT "profiles".* FROM "profiles" WHERE ("profiles".profile_id = 4) LIMIT 1[0m
+  [1m[35mAREL (0.1ms)[0m  UPDATE "profiles" SET "profile_id" = 5, "updated_at" = '2011-01-14 23:08:34.625781' WHERE ("profiles"."id" = 4)
+Redirected to http://localhost:3000/profiles/5
+Completed 302 Found in 41ms
+
+
+Started GET "/profiles/5" for 127.0.0.1 at 2011-01-15 01:08:34 +0200
+  Processing by ProfilesController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mProfile Load (0.6ms)[0m  [1mSELECT "profiles".* FROM "profiles" WHERE ("profiles"."id" = 5) LIMIT 1[0m
+  [1m[35mProfile Load (0.2ms)[0m  SELECT "profiles".* FROM "profiles" WHERE ("profiles".profile_id = 5) LIMIT 1
+Rendered profiles/show.html.erb within layouts/application (15.7ms)
+Completed 200 OK in 68ms (Views: 20.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/profiles/4" for 127.0.0.1 at 2011-01-15 01:08:46 +0200
+  Processing by ProfilesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mProfile Load (0.2ms)[0m  [1mSELECT "profiles".* FROM "profiles" WHERE ("profiles"."id" = 4) LIMIT 1[0m
+  [1m[35mProfile Load (0.3ms)[0m  SELECT "profiles".* FROM "profiles" WHERE ("profiles".profile_id = 4) LIMIT 1
+Rendered profiles/show.html.erb within layouts/application (15.6ms)
+Completed 200 OK in 34ms (Views: 19.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/profiles/5" for 127.0.0.1 at 2011-01-15 01:08:50 +0200
+  Processing by ProfilesController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mProfile Load (0.2ms)[0m  [1mSELECT "profiles".* FROM "profiles" WHERE ("profiles"."id" = 5) LIMIT 1[0m
+  [1m[35mProfile Load (0.2ms)[0m  SELECT "profiles".* FROM "profiles" WHERE ("profiles".profile_id = 5) LIMIT 1
+Rendered profiles/show.html.erb within layouts/application (15.7ms)
+Completed 200 OK in 33ms (Views: 19.4ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-01-15 01:29:49 +0200
+  Processing by ProfilesController#new as HTML
+Rendered profiles/_form.html.erb (9.9ms)
+Rendered profiles/new.html.erb within layouts/application (12.9ms)
+Completed 200 OK in 21ms (Views: 16.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/profiles" for 127.0.0.1 at 2011-01-15 01:29:57 +0200
+  Processing by ProfilesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"iWQb6pJb4U0MwBNUDT7gLgVzDpLFD/vMpISB0dy0Y1U=", "profile"=>{"name"=>"papa", "number"=>"5", "sex"=>"false"}, "commit"=>"Create Profile"}
+  [1m[36mProfile Load (0.3ms)[0m  [1mSELECT "profiles".* FROM "profiles" WHERE (profile_id IS NULL AND number = 5 AND sex != 'f') ORDER BY RANDOM() LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mAREL (1.7ms)[0m  [1mINSERT INTO "profiles" ("name", "number", "sex", "profile_id", "created_at", "updated_at") VALUES ('papa', 5, 'f', NULL, '2011-01-14 23:29:57.185434', '2011-01-14 23:29:57.185434')[0m
+Redirected to http://localhost:3000/profiles/6
+Completed 302 Found in 169ms
+
+
+Started GET "/profiles/6" for 127.0.0.1 at 2011-01-15 01:29:57 +0200
+  Processing by ProfilesController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[35mProfile Load (0.3ms)[0m  SELECT "profiles".* FROM "profiles" WHERE ("profiles"."id" = 6) LIMIT 1
+  [1m[36mProfile Load (0.2ms)[0m  [1mSELECT "profiles".* FROM "profiles" WHERE ("profiles".profile_id = 6) LIMIT 1[0m
+Rendered profiles/show.html.erb within layouts/application (14.7ms)
+Completed 200 OK in 32ms (Views: 18.3ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-01-15 01:30:02 +0200
+  Processing by ProfilesController#new as HTML
+Rendered profiles/_form.html.erb (38.1ms)
+Rendered profiles/new.html.erb within layouts/application (42.0ms)
+Completed 200 OK in 58ms (Views: 45.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/profiles" for 127.0.0.1 at 2011-01-15 01:30:06 +0200
+  Processing by ProfilesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"iWQb6pJb4U0MwBNUDT7gLgVzDpLFD/vMpISB0dy0Y1U=", "profile"=>{"name"=>"mama", "number"=>"5", "sex"=>"true"}, "commit"=>"Create Profile"}
+  [1m[35mProfile Load (0.4ms)[0m  SELECT "profiles".* FROM "profiles" WHERE (profile_id IS NULL AND number = 5 AND sex != 't') ORDER BY RANDOM() LIMIT 1
+  [1m[36mProfile Load (0.1ms)[0m  [1mSELECT "profiles".* FROM "profiles" WHERE ("profiles".profile_id = 6) LIMIT 1[0m
+  [1m[35mAREL (0.6ms)[0m  INSERT INTO "profiles" ("name", "number", "sex", "profile_id", "created_at", "updated_at") VALUES ('mama', 5, 't', 6, '2011-01-14 23:30:06.636902', '2011-01-14 23:30:06.636902')
+  [1m[36mProfile Load (0.1ms)[0m  [1mSELECT "profiles".* FROM "profiles" WHERE ("profiles".profile_id = 6) LIMIT 1[0m
+  [1m[35mAREL (0.1ms)[0m  UPDATE "profiles" SET "profile_id" = 7, "updated_at" = '2011-01-14 23:30:06.647074' WHERE ("profiles"."id" = 6)
+Redirected to http://localhost:3000/profiles/7
+Completed 302 Found in 41ms
+
+
+Started GET "/profiles/7" for 127.0.0.1 at 2011-01-15 01:30:06 +0200
+  Processing by ProfilesController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mProfile Load (0.2ms)[0m  [1mSELECT "profiles".* FROM "profiles" WHERE ("profiles"."id" = 7) LIMIT 1[0m
+  [1m[35mProfile Load (0.2ms)[0m  SELECT "profiles".* FROM "profiles" WHERE ("profiles".profile_id = 7) LIMIT 1
+Rendered profiles/show.html.erb within layouts/application (44.9ms)
+Completed 200 OK in 64ms (Views: 49.1ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/profiles/7/oauth_create" for 127.0.0.1 at 2011-01-15 01:30:07 +0200
+  Processing by ProfilesController#oauth_create as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mProfile Load (0.2ms)[0m  [1mSELECT "profiles".* FROM "profiles" WHERE ("profiles"."id" = 7) LIMIT 1[0m
+Redirected to https://api.twitter.com/oauth/authorize?oauth_token=c6USaSgy7ni0FqIM0YcfxWcwyJM6Yhjx237620viQE
+Completed 302 Found in 2050ms
+
+
+Started GET "/profiles/7/oauth_finalize?oauth_token=c6USaSgy7ni0FqIM0YcfxWcwyJM6Yhjx237620viQE&oauth_verifier=SNF373sZll3WCddW2HgUPuZUTigbtDHC3cVUVkzbywE" for 127.0.0.1 at 2011-01-15 01:30:23 +0200
+  Processing by ProfilesController#oauth_finalize as HTML
+  Parameters: {"oauth_token"=>"c6USaSgy7ni0FqIM0YcfxWcwyJM6Yhjx237620viQE", "oauth_verifier"=>"SNF373sZll3WCddW2HgUPuZUTigbtDHC3cVUVkzbywE", "id"=>"7"}
+  [1m[35mProfile Load (0.2ms)[0m  SELECT "profiles".* FROM "profiles" WHERE ("profiles"."id" = 7) LIMIT 1
+Redirected to http://localhost:3000/profiles/7/update_status
+Completed 302 Found in 1602ms
+
+
+Started GET "/profiles/7/update_status" for 127.0.0.1 at 2011-01-15 01:30:25 +0200
+  Processing by ProfilesController#update_status as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mProfile Load (0.2ms)[0m  [1mSELECT "profiles".* FROM "profiles" WHERE ("profiles"."id" = 7) LIMIT 1[0m
+  [1m[35mProfile Load (0.2ms)[0m  SELECT "profiles".* FROM "profiles" WHERE ("profiles".profile_id = 7) LIMIT 1
+Rendered profiles/show.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 1975ms (Views: 6.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-01-15 16:16:33 +0200
+  Processing by ProfilesController#new as HTML
+Rendered profiles/_form.html.erb (10.1ms)
+Rendered profiles/new.html.erb within layouts/application (13.5ms)
+Completed 200 OK in 83ms (Views: 18.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/profiles" for 127.0.0.1 at 2011-01-15 16:16:42 +0200
+  Processing by ProfilesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"r4E1Xd9h7CXFlu/3/8ZwFMiZgkKzNI7kgZXQjEm6lIo=", "profile"=>{"name"=>"titas", "number"=>"107", "sex"=>"true"}, "commit"=>"Create Profile"}
+  [1m[36mProfile Load (0.3ms)[0m  [1mSELECT "profiles".* FROM "profiles" WHERE (profile_id IS NULL AND number = 107 AND sex != 't') ORDER BY RANDOM() LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mAREL (0.7ms)[0m  [1mINSERT INTO "profiles" ("name", "number", "sex", "profile_id", "created_at", "updated_at") VALUES ('titas', 107, 't', NULL, '2011-01-15 14:16:42.499622', '2011-01-15 14:16:42.499622')[0m
+Redirected to http://localhost:3000/profiles/8
+Completed 302 Found in 202ms
+
+
+Started GET "/profiles/8" for 127.0.0.1 at 2011-01-15 16:16:42 +0200
+  Processing by ProfilesController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[35mProfile Load (0.3ms)[0m  SELECT "profiles".* FROM "profiles" WHERE ("profiles"."id" = 8) LIMIT 1
+  [1m[36mProfile Load (0.2ms)[0m  [1mSELECT "profiles".* FROM "profiles" WHERE ("profiles".profile_id = 8) LIMIT 1[0m
+Rendered profiles/show.html.erb within layouts/application (15.5ms)
+Completed 200 OK in 33ms (Views: 19.5ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-01-15 16:16:45 +0200
+  Processing by ProfilesController#new as HTML
+Rendered profiles/_form.html.erb (7.0ms)
+Rendered profiles/new.html.erb within layouts/application (9.8ms)
+Completed 200 OK in 27ms (Views: 13.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/profiles" for 127.0.0.1 at 2011-01-15 16:16:58 +0200
+  Processing by ProfilesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"r4E1Xd9h7CXFlu/3/8ZwFMiZgkKzNI7kgZXQjEm6lIo=", "profile"=>{"name"=>"edvinas forever alone :(", "number"=>"107", "sex"=>"false"}, "commit"=>"Create Profile"}
+  [1m[35mProfile Load (0.5ms)[0m  SELECT "profiles".* FROM "profiles" WHERE (profile_id IS NULL AND number = 107 AND sex != 'f') ORDER BY RANDOM() LIMIT 1
+  [1m[36mProfile Load (0.1ms)[0m  [1mSELECT "profiles".* FROM "profiles" WHERE ("profiles".profile_id = 8) LIMIT 1[0m
+  [1m[35mAREL (0.7ms)[0m  INSERT INTO "profiles" ("name", "number", "sex", "profile_id", "created_at", "updated_at") VALUES ('edvinas forever alone :(', 107, 'f', 8, '2011-01-15 14:16:58.758329', '2011-01-15 14:16:58.758329')
+  [1m[36mProfile Load (0.1ms)[0m  [1mSELECT "profiles".* FROM "profiles" WHERE ("profiles".profile_id = 8) LIMIT 1[0m
+  [1m[35mAREL (0.1ms)[0m  UPDATE "profiles" SET "profile_id" = 9, "updated_at" = '2011-01-15 14:16:58.767715' WHERE ("profiles"."id" = 8)
+Redirected to http://localhost:3000/profiles/9
+Completed 302 Found in 70ms
+
+
+Started GET "/profiles/9" for 127.0.0.1 at 2011-01-15 16:16:58 +0200
+  Processing by ProfilesController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mProfile Load (0.1ms)[0m  [1mSELECT "profiles".* FROM "profiles" WHERE ("profiles"."id" = 9) LIMIT 1[0m
+  [1m[35mProfile Load (0.2ms)[0m  SELECT "profiles".* FROM "profiles" WHERE ("profiles".profile_id = 9) LIMIT 1
+Rendered profiles/show.html.erb within layouts/application (16.0ms)
+Completed 200 OK in 33ms (Views: 19.6ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/profiles/9/oauth_create" for 127.0.0.1 at 2011-01-15 16:17:31 +0200
+  Processing by ProfilesController#oauth_create as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mProfile Load (0.2ms)[0m  [1mSELECT "profiles".* FROM "profiles" WHERE ("profiles"."id" = 9) LIMIT 1[0m
+Redirected to https://api.twitter.com/oauth/authorize?oauth_token=rAGJUeMahb7PJARJpXuJcKO2DhUoUf1nCAOnED0y0w
+Completed 302 Found in 1047ms
+
+
+Started GET "/profiles/9/oauth_finalize?oauth_token=rAGJUeMahb7PJARJpXuJcKO2DhUoUf1nCAOnED0y0w&oauth_verifier=KCXNTDLtTjFm15ve6onTqtFf08sK9R44y5O1S6v728" for 127.0.0.1 at 2011-01-15 16:17:42 +0200
+  Processing by ProfilesController#oauth_finalize as HTML
+  Parameters: {"oauth_token"=>"rAGJUeMahb7PJARJpXuJcKO2DhUoUf1nCAOnED0y0w", "oauth_verifier"=>"KCXNTDLtTjFm15ve6onTqtFf08sK9R44y5O1S6v728", "id"=>"9"}
+  [1m[35mProfile Load (0.2ms)[0m  SELECT "profiles".* FROM "profiles" WHERE ("profiles"."id" = 9) LIMIT 1
+Redirected to http://localhost:3000/profiles/9/update_status
+Completed 302 Found in 1000ms
+
+
+Started GET "/profiles/9/update_status" for 127.0.0.1 at 2011-01-15 16:17:43 +0200
+  Processing by ProfilesController#update_status as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mProfile Load (0.2ms)[0m  [1mSELECT "profiles".* FROM "profiles" WHERE ("profiles"."id" = 9) LIMIT 1[0m
+  [1m[35mProfile Load (0.2ms)[0m  SELECT "profiles".* FROM "profiles" WHERE ("profiles".profile_id = 9) LIMIT 1
+Rendered profiles/show.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 1441ms (Views: 6.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-01-17 17:17:35 +0200
+  Processing by ProfilesController#new as HTML
+Rendered profiles/_form.html.erb (11.4ms)
+Rendered profiles/new.html.erb within layouts/application (15.4ms)
+Completed 200 OK in 57ms (Views: 22.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/profiles" for 127.0.0.1 at 2011-01-17 17:17:42 +0200
+  Processing by ProfilesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"cIbhpHtf+aZPib8hZQ9yEIWrCgA5tHqvQl8L3amnzK8=", "profile"=>{"name"=>"papalas", "number"=>"12", "sex"=>"true"}, "commit"=>"Create Profile"}
+  [1m[36mProfile Load (0.3ms)[0m  [1mSELECT "profiles".* FROM "profiles" WHERE (profile_id IS NULL AND number = 12 AND sex != 't') ORDER BY RANDOM() LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mAREL (0.7ms)[0m  [1mINSERT INTO "profiles" ("name", "number", "sex", "profile_id", "created_at", "updated_at") VALUES ('papalas', 12, 't', NULL, '2011-01-17 15:17:42.468899', '2011-01-17 15:17:42.468899')[0m
+Redirected to http://localhost:3000/profiles/10
+Completed 302 Found in 162ms
+
+
+Started GET "/profiles/10" for 127.0.0.1 at 2011-01-17 17:17:42 +0200
+  Processing by ProfilesController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[35mProfile Load (0.4ms)[0m  SELECT "profiles".* FROM "profiles" WHERE ("profiles"."id" = 10) LIMIT 1
+  [1m[36mProfile Load (0.2ms)[0m  [1mSELECT "profiles".* FROM "profiles" WHERE ("profiles".profile_id = 10) LIMIT 1[0m
+Rendered profiles/show.html.erb within layouts/application (15.7ms)
+Completed 200 OK in 36ms (Views: 22.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-01-17 17:17:45 +0200
+  Processing by ProfilesController#new as HTML
+Rendered profiles/_form.html.erb (7.5ms)
+Rendered profiles/new.html.erb within layouts/application (11.2ms)
+Completed 200 OK in 30ms (Views: 16.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/profiles" for 127.0.0.1 at 2011-01-17 17:17:50 +0200
+  Processing by ProfilesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"cIbhpHtf+aZPib8hZQ9yEIWrCgA5tHqvQl8L3amnzK8=", "profile"=>{"name"=>"mamalas", "number"=>"12", "sex"=>"false"}, "commit"=>"Create Profile"}
+  [1m[35mProfile Load (0.5ms)[0m  SELECT "profiles".* FROM "profiles" WHERE (profile_id IS NULL AND number = 12 AND sex != 'f') ORDER BY RANDOM() LIMIT 1
+  [1m[36mProfile Load (0.1ms)[0m  [1mSELECT "profiles".* FROM "profiles" WHERE ("profiles".profile_id = 10) LIMIT 1[0m
+  [1m[35mAREL (0.6ms)[0m  INSERT INTO "profiles" ("name", "number", "sex", "profile_id", "created_at", "updated_at") VALUES ('mamalas', 12, 'f', 10, '2011-01-17 15:17:50.594956', '2011-01-17 15:17:50.594956')
+  [1m[36mProfile Load (0.1ms)[0m  [1mSELECT "profiles".* FROM "profiles" WHERE ("profiles".profile_id = 10) LIMIT 1[0m
+  [1m[35mAREL (0.1ms)[0m  UPDATE "profiles" SET "profile_id" = 11, "updated_at" = '2011-01-17 15:17:50.604692' WHERE ("profiles"."id" = 10)
+Redirected to http://localhost:3000/profiles/11
+Completed 302 Found in 77ms
+
+
+Started GET "/profiles/11" for 127.0.0.1 at 2011-01-17 17:17:50 +0200
+  Processing by ProfilesController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mProfile Load (0.2ms)[0m  [1mSELECT "profiles".* FROM "profiles" WHERE ("profiles"."id" = 11) LIMIT 1[0m
+  [1m[35mProfile Load (0.2ms)[0m  SELECT "profiles".* FROM "profiles" WHERE ("profiles".profile_id = 11) LIMIT 1
+Rendered profiles/show.html.erb within layouts/application (15.1ms)
+Completed 200 OK in 35ms (Views: 20.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/profiles/11/oauth_create" for 127.0.0.1 at 2011-01-17 17:17:52 +0200
+  Processing by ProfilesController#oauth_create as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mProfile Load (0.2ms)[0m  [1mSELECT "profiles".* FROM "profiles" WHERE ("profiles"."id" = 11) LIMIT 1[0m
+Redirected to https://api.twitter.com/oauth/authorize?oauth_token=RtLKhv3UzocwIQCNHv1GzFjAaIMuPWVt2Br89PHkA
+Completed 302 Found in 2806ms

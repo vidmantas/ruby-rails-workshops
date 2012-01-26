@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @vegetable.title %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @vegetable.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_vegetable_path(@vegetable) %> |
+<%= link_to 'Back', vegetables_path %>

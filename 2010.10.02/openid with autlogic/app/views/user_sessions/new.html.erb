@@ -1,0 +1,5 @@
+<%= form_for @user_session, :url => user_session_path do |f| %>
+  <%= flash[:error] if flash[:error] %>
+  <%= f.text_field :openid_identifier %>
+  <%= f.submit 'Save' %>
+<% end -%>

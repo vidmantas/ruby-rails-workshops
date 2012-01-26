@@ -1,0 +1,8 @@
+= Rails 3
+
+    Globalize3 + multi locale fields + auto translation with Google
+
+    bundle install
+    rake db:migrate
+
+    http://lauris.night.lt/workshops/20110115/

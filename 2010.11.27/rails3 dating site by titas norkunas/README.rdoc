@@ -1,0 +1,9 @@
+= Rails 3
+
+* {Prezentacija}[https://github.com/vidmantas/ruby-rails-workshops/tree/master/2010.11.27/rails3%20dating%20site%20by%20titas%20norkunas/prezentacija.pdf]
+
+
+== Praktinė dalis
+
+    rails server and enjoy!
+

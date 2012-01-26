@@ -1,0 +1,9 @@
+= 7-as susitikimas - 2010-11-27
+
+Kadangi pirmą kartą susitinkame Vilniaus Hub'e, tikimės nemažai naujų veidų, taigi šį kartą aptarsime fundamentalias Ruby/Rails temas nuo pagrindų iki "gilumos".
+
+== Pranešimai
+
+* Ruby naujienos: 1.9 ir 2.0
+* Rails 3
+* Ruby paketų ekosistema

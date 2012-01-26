@@ -1,0 +1,61 @@
+body {
+  background-color: #FFEE73;
+  color: #4A11AE;
+}
+
+h1 {
+  text-align: center;
+}
+
+label {
+    display: block;
+    float: left;
+    width: 48%;
+}
+
+p {
+  text-align: center;
+  position: relative;
+  top: 45%;
+}
+
+.field {
+  padding: 5px;
+  margin-left: 25%;
+  margin-right: 25%;
+}
+
+.actions {
+  padding: 10px;
+  text-align: center;
+}
+
+#content {
+  position: absolute;
+  left: 30%;
+  top: 30%;
+  min-width:40%;
+  height: 275px;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
+  border-color: #FFE840;
+  background-color: #FFE100;
+  border-style:solid;
+  border-width:5px;
+}
+
+#notice {
+  color: green;
+}
+
+.field_with_errors input {
+  padding: 5px;
+  background-color: #A62F00;
+}
+
+#error_explanation {
+  padding: 10px;
+  text-align: center;
+  color: #A62F00;
+}
+

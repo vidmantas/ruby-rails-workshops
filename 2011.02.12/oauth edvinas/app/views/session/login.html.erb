@@ -1,0 +1,10 @@
+<!DOCTYPE>
+<html>
+  <head />
+  <body>
+  <% form_for @user, :url => { :action => "login" } do |form| %>
+    <%= form.text_field :username %>
+    <%= form.submit "Save" %>
+  <% end %>
+  </body>
+</html>

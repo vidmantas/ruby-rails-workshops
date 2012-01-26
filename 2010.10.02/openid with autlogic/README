@@ -1,0 +1,11 @@
+Čia yra Rails 3 aplikacijos gabaliukai suteikiantys funkcionalumą Authlogic'ui su OpenID authentifikacija.
+Reikalingi gem'sai surašyti Gemfile'e.
+Būtini du pluginai, kurie randami vendor kataloge.
+Deja, negaliu pasakyti, kurie tai forkai iš github'o. Bet nuoširdžiai tikiu, kad greitu metu oficialios repozitorijos bus veikiančios.
+
+authlogic_openid - pluginai suklijuojantis authlogic gem'są su openid funkcionalumu.
+open_id_authentication - openid funkcionalumas Rails'uose.
+
+Pagarbiai,
+Edvinas Bartkus
+edvinas ( paukštukc ) bartkus ( taškc) lt

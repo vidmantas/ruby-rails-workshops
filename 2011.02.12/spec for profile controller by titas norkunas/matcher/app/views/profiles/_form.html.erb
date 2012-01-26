@@ -1,0 +1,31 @@
+<%= form_for(@profile) do |f| %>
+  <% if @profile.errors.any? %>
+    <div id="error_explanation">
+      <% @profile.errors.full_messages.each do |msg| %>
+        <%= msg %>
+      <% end %>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name, "Name:" %>
+    <%= f.text_field :name, :size => 15 %>
+  </div>
+  <div class="field">
+    <%= f.label :number, "One-in-a-million:" %>
+    <%= f.text_field :number, :size => 15 %>
+  </div>
+  <div class="field">
+    <label>Male:
+      <%= f.radio_button :sex, Profile::MALE %>
+    </label>
+    <label>Female:
+    <%= f.radio_button :sex, Profile::FEMALE %>
+    </label>
+  </div>
+  <br/>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+

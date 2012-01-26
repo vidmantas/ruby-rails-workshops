@@ -1,0 +1,26 @@
+package_assets: on
+embed_assets: off
+javascript_compressor: closure
+gzip_assets: on
+
+javascripts:
+  super_awesome_js:
+    - public/javascripts/jquery-1.4.3.min.js
+    - public/javascripts/jquery-ui-1.8.5.custom.min.js
+    - public/javascripts/application.js
+  js_gone_wild:
+    - public/javascripts/js_gone_wild/jquery-1.4.2.js
+    - public/javascripts/js_gone_wild/jquery.ui.core.js
+    - public/javascripts/js_gone_wild/jquery.ui.widget.js
+    - public/javascripts/js_gone_wild/jquery.ui.mouse.js
+    - public/javascripts/js_gone_wild/jquery.ui.position.js
+    - public/javascripts/js_gone_wild/jquery.effects.core.js
+    - public/javascripts/js_gone_wild/jquery.effects.*.js
+    - public/javascripts/js_gone_wild/*.js
+    - public/javascripts/application.js
+stylesheets:
+  bestest_css:
+    - public/stylesheets/application.css
+  lot_of_images:
+    - public/stylesheets/application.css
+    - public/stylesheets/images.css

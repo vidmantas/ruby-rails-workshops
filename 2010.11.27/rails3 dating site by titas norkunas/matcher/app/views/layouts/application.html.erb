@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Matcher</title>
+  <%= stylesheet_link_tag "style.css" %>
+  <%= javascript_include_tag :defaults %>
+  <%= csrf_meta_tag %>
+</head>
+<body>
+  <p id="notice" style="display:<%= notice.blank? ? 'none' : 'block' %>"><%= notice %></p>
+  <div id="content">
+    <%= yield %>
+  </div>
+</body>
+</html>
+
