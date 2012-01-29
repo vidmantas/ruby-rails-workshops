@@ -1,0 +1,58 @@
+#!/opt/ruby-1.9.2-p290/bin/ruby
+
+# ARGV.replace(["refs/heads/live", "60ada0b136d849707a79e8de6b61de2efd193416", "dbb12e4e121d95a317d7e4a1f344d4cc1d5c4e28"])
+
+refname, rev_old, rev_new = *ARGV
+puts [refname, rev_old, rev_new].inspect
+unless refname =~ %r{^refs/heads/(master|live)$} 
+  exit # master & live checking
+end
+branch = $1
+
+merge_bases = `git merge-base #{rev_old} #{rev_new}`.strip.split(/\s+/)
+unless $?.success? and merge_bases.length == 1
+  STDERR.puts "No unique merge base found between #{rev_old} and #{rev_new}"
+  exit(1)
+__END__ 
+merge_base = merge_bases[0]
+
+revs_with_parents = `git rev-list --parents #{merge_base}..#{rev_new}`.strip.split(/[\r\n]+/)
+revs_with_parents.each do |line|
+  commit, *parents = line.strip.split(/\s+/)
+  # p [commit, parents]
+  
+  if parents.length > 1
+    if branch == 'live'
+      
+      if false
+        STDERR.puts "Non-linear history on #{branch} is disabled. Please rebase your commits."
+        exit(1)
+      end
+      
+      # The question ASKED to permit non-linear history if the merge is
+      # from another branch in the central repository, so check whether that's the case.
+      if true
+        any_parent_not_on_any_branch = false
+        parents.each do |it|
+          branches = `git branch --contains #{it} 2> /dev/null`
+          if $?.success? and !branches.strip.empty?
+            STDERR.puts "More than one parent of commit #{commit}"
+            STDERR.puts "... but parent #{it} is on branches:"
+            STDERR.puts branches
+          else
+            STDERR.puts "Parent #{it} not found on any other branch in this repository"
+            any_parent_not_on_any_branch = true
+            break
+          end
+        end
+        if any_parent_not_on_any_branch
+          STDERR.puts "Refusing push, since it would create non-linear history"
+          STDERR.puts "for #{ref} and the merges don't just involve commits"
+          STDERR.puts "on other branches in this repository."
+          exit(2)
+        end
+      end
+    
+    end
+  end
+end
