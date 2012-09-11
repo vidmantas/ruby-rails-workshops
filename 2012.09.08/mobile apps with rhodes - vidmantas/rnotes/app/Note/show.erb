@@ -1,0 +1,34 @@
+<div data-role="page" data-add-back-btn="false">
+
+  <div data-role="header" data-position="inline">
+    <h1><%= @note.title %></h1>
+    <a href="<%= url_for :action => :index %>" class="ui-btn-left" data-icon="arrow-l" data-direction="reverse">
+      Back
+    </a>
+    <a href="<%= url_for :action => :edit, :id => @note.object %>" class="ui-btn-right" data-icon="star">
+      Edit
+    </a>
+  </div>
+
+  <div data-role="content">
+    <ul data-role="listview">
+      
+          <li>
+            <div class="itemLabel">Title</div>
+            <div class="itemValue"><%= @note.title %></div>
+          </li>
+      
+          <li>
+            <div class="itemLabel">Description</div>
+            <div class="itemValue"><%= @note.description %></div>
+          </li>
+      
+          <li>
+            <div class="itemLabel">Image</div>
+            <div class="itemValue"><img src="<%= Rho::RhoApplication.get_blob_path(@note.image_uri) %>" width='300px' /></div>
+          </li>
+      
+    </ul>
+  </div>
+
+</div>

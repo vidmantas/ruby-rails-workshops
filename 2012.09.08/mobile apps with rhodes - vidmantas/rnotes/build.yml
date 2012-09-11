@@ -1,0 +1,27 @@
+#sdk: "/home/vidmantas/.rvm/gems/ruby-1.9.3-p125/gems/rhodes-3.4.2"
+sdkversion: 3.4.0
+name: Notes
+version: 1.0
+vendor: rhomobile
+build: debug
+bbver: 4.6
+applog: rholog.txt
+iphone:
+  configuration: Release
+  sdk: iphonesimulator5.0
+  provisionprofile:
+  codesignidentity:
+  entitlements:
+  BundleIdentifier: com.rhomobile.rnotes
+  BundleURLScheme: rnotes
+wp:
+  productid: '5e9b7a10-db15-012f-eced-001cc091f11e'
+symbian:
+  uid: '0xed6a3c3f'
+android:
+  android_title: 0
+  version: 4.1
+  emulator: notes
+
+extensions: ["json"]
+capabilities: ["camera"]

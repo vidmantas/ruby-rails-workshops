@@ -1,0 +1,5 @@
+= 14-as susitikimas - 2012-09-08
+
+* ember.js
+* Large scale exception logging
+* Mobilios aplikacijos su Rhodes

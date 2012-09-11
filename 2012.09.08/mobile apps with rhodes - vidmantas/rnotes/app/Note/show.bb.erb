@@ -1,0 +1,30 @@
+<div data-role="page" data-add-back-btn="true">
+
+  <div data-role="header" data-position="inline">
+    <%= link_to "Back", :action => :index %>
+    <h1><%= @note.title %></h1>
+    <%= link_to "Edit", :action => :edit, :id => @note.object %>
+  </div>
+
+  <div data-role="content">
+    <table>
+      
+      <tr>
+    	<td class="itemLabel">Title</td>
+        <td class="itemValue"><%= @note.title%></td>
+      </tr>
+      
+      <tr>
+    	<td class="itemLabel">Description</td>
+        <td class="itemValue"><%= @note.description%></td>
+      </tr>
+      
+      <tr>
+    	<td class="itemLabel">Image</td>
+        <td class="itemValue"><%= @note.image%></td>
+      </tr>
+      
+    </table>
+  </div>
+
+</div>

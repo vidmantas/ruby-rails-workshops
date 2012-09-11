@@ -1,0 +1,11 @@
+<div data-role="page" data-url="<%= Rho::RhoConfig.start_path %>/">  
+   <div data-role="content">
+    <% if @ringtones.empty? %>
+      No ring tones
+    <% else %>
+      <% @ringtones.each do |k,v| %>
+        <%= k %> <br/>
+      <% end %>
+    <% end %>
+  </div>
+</div>
