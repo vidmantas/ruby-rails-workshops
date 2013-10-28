@@ -1,0 +1,37 @@
+<h1>Listing girls</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Stars</th>
+      <th>Is worth another date?</th>
+      <th>Name</th>
+      <th>Phone</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @girls.each do |girl| %>
+      <tr>
+        <td><%= girl.stars %></td>
+        <td><%= if girl.is_worth_another_date? 
+            "Gerulė"
+          else
+            "Blogulė"
+          end %></td>
+        <td><%= girl.name %></td>
+        <td><%= girl.phone %></td>
+        <td><%= link_to 'Show', girl %></td>
+        <td><%= link_to 'Edit', edit_girl_path(girl) %></td>
+        <td><%= link_to 'Destroy', girl, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Girl', new_girl_path %>

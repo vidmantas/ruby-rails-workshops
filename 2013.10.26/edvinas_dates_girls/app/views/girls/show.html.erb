@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @girl.name %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @girl.phone %>
+</p>
+
+<p>
+  <strong>Stars:</strong>
+  <%= @girl.stars %>
+</p>
+
+<%= link_to 'Edit', edit_girl_path(@girl) %> |
+<%= link_to 'Back', girls_path %>
